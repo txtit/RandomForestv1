@@ -141,7 +141,7 @@ class DecisionTree:
 # giúp bạn đánh giá mô hình trên dữ liệu mới.
     def predict(self, X):
         return [self._predict_sample(x, self.tree) for x in X]
-
+#  du doan du lieu moi
     def _predict_sample(self, x, tree):
         if not isinstance(tree, dict):
             return tree
@@ -170,7 +170,7 @@ class RandomForest:
         tree_preds = np.array([tree.predict(X) for tree in self.trees])
         return [Counter(row).most_common(1)[0][0] for row in tree_preds.T]
 
-# Initialize and train Random Forest
+# tao va huan luyen rf
 rf = RandomForest(n_estimators=300, max_depth=20)
 rf.fit(X_train, y_train)
 
